@@ -1,0 +1,52 @@
+﻿/*
+ * Created by SharpDevelop.
+ * User: gabyv
+ * Date: 27/10/2026
+ * Time: 06:03 p. m.
+ * 
+ * To change this template use Tools | Options | Coding | Edit Standard Headers.
+ */
+using System;
+using System.Windows.Forms;
+
+
+namespace Ops_basicas
+{
+    public partial class fmr_valores : Form
+    {
+        public fmr_valores()
+        {
+            InitializeComponent();
+        }
+
+
+        void BtnCalcularClick(object sender, EventArgs e)
+        {
+            double a = Convert.ToDouble(txtA.Text);
+            double b = Convert.ToDouble(txtB.Text);
+            double c = Convert.ToDouble(txtC.Text);
+
+
+            double resultado = (b * b) - (4 * a * c);
+
+
+            if (a == 0)
+            {
+                MessageBox.Show("El valor de a no puede ser cero");
+            }
+            else if (resultado < 0)
+            {
+                MessageBox.Show("No existen soluciones reales");
+            }
+            else
+            {
+                double x1 = (-b + Math.Sqrt(resultado)) / (2 * a);
+                double x2 = (-b - Math.Sqrt(resultado)) / (2 * a);
+
+
+                txtX1.Text = Convert.ToString(x1);
+                txtX2.Text = Convert.ToString(x2);
+            }
+        }
+    }
+}
